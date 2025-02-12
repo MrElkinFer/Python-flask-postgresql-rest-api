@@ -1,9 +1,12 @@
 from flask import Flask
 from config import configKey
 from routes import Movie
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+# cors para habilitadar peticiones desde cualquier origen
+CORS(app, resources={"*": {"origins": "http://localhost:3000"}})
 
 
 def page_not_found(error):
